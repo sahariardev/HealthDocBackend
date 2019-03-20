@@ -1,5 +1,7 @@
 package com.healthDoc.POC.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,20 @@ public class SearchService {
 		System.out.println(dataUrl);
 		ResponseEntity<String> response = restTemplate.getForEntity(dataUrl, String.class);
 		return response.getBody();
+	}
+	public String searchBySymptoms(ArrayList<String> symptoms) {
+		
+		RestTemplate restTemplate=new RestTemplate();
+		String sym="";
+		for(String s:symptoms) {
+			sym+=","+s;
+		}
+		sym=sym.substring(1,sym.length());
+		String dataUrl=host+"/_search?q=symptoms:"+sym;
+		System.out.println(dataUrl);
+		ResponseEntity<String> response = restTemplate.getForEntity(dataUrl, String.class);
+		return response.getBody();
+		
 	}
 
 }
