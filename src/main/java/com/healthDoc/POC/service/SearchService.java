@@ -29,7 +29,7 @@ public class SearchService {
 			sym+=","+s;
 		}
 		sym=sym.substring(1,sym.length());
-		String dataUrl=host+"/_search?q=symptoms:"+sym;
+		String dataUrl=host+"/_search?q=symptom:"+sym;
 		System.out.println(dataUrl);
 		ResponseEntity<String> response = restTemplate.getForEntity(dataUrl, String.class);
 		return response.getBody();
