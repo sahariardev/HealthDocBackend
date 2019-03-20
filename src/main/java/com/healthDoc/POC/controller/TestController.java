@@ -1,14 +1,14 @@
 package com.healthDoc.POC.controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.ClientHttpRequestFactory;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.healthDoc.POC.model.DiseaseData;
-
+@CrossOrigin
 @RestController
 public class TestController {
 
