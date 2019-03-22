@@ -2,6 +2,7 @@ package com.healthDoc.POC.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,11 @@ public class SearchController {
 	@PostMapping("/search/by/symptoms/")
 	public String searchBySymptomsName(@RequestBody SymptomsRequest request) {
 		return searchService.searchBySymptoms(request.getSymptoms());
+	}
+	@GetMapping("suggest/by/symptom")
+	public String suggestBySymptom()
+	{
+		return searchService.suggestBySymptom("");
 	}
 		//autocomplete
 }

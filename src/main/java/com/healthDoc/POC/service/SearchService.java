@@ -35,5 +35,30 @@ public class SearchService {
 		return response.getBody();
 		
 	}
+	public String suggestBySymptom(String key)
+	{
+		RestTemplate restTemplate=new RestTemplate();
+		String dataUrl=host+"/_search";
+		String params="{\n" + 
+				"\n" + 
+				"\n" + 
+				"		\"query\":\n" + 
+				"		{\n" + 
+				"			\"match_phrase_prefix\":\n" + 
+				"			{\n" + 
+				"				\"name\":\n" + 
+				"				{\n" + 
+				"					\"query\":\"res\",\n" + 
+				"					\"slop\":10\n" + 
+				"				}\n" + 
+				"			}\n" + 
+				"		}\n" + 
+				"		\n" + 
+				"	\n" + 
+				"}";
+		ResponseEntity<String> response = restTemplate.postForEntity(dataUrl,params,String.class);
+		return response.getBody();
+	}
+	
 
 }
