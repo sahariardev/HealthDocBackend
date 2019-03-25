@@ -35,6 +35,15 @@ public class SearchService {
 		return response.getBody();
 		
 	}
+	
+	public String searchByMedicine(String name) {
+		RestTemplate restTemplate = new RestTemplate();
+		System.out.println(host);
+		String dataUrl=host+"/_search?q=title:"+name;
+		System.out.println(dataUrl);
+		ResponseEntity<String> response = restTemplate.getForEntity(dataUrl, String.class);
+		return response.getBody();
+	}
 	public String suggestBySymptom(String key)
 	{
 		RestTemplate restTemplate=new RestTemplate();
